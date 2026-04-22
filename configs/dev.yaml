@@ -1,0 +1,19 @@
+event_hubs:
+  namespace: "claims-dev-eh-ns"
+  consumer_group: "$Default"
+  checkpoint_store: "adls://claims-dev/checkpoints"
+  max_events_per_trigger: 10000
+delta_lake:
+  bronze_path:      "adls://claims-dev/bronze/claims"
+  silver_path:      "adls://claims-dev/silver/claims"
+  gold_path:        "adls://claims-dev/gold"
+  quarantine_path:  "adls://claims-dev/quarantine/claims"
+  dlq_path:         "adls://claims-dev/dlq/claims"
+  checkpoint_store: "adls://claims-dev/checkpoints"
+quality:
+  failure_threshold: 0.01
+  dq_report_path: "adls://claims-dev/dq-reports"
+monitoring:
+  azure_monitor_endpoint: ""
+  dcr_rule_id: ""
+trigger_interval: "60 seconds"

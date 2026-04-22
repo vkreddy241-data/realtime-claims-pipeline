@@ -1,0 +1,19 @@
+event_hubs:
+  namespace: "claims-prod-eh-ns"
+  consumer_group: "claims-spark-consumer"
+  checkpoint_store: "adls://claims-prod/checkpoints"
+  max_events_per_trigger: 50000
+delta_lake:
+  bronze_path:      "adls://claims-prod/bronze/claims"
+  silver_path:      "adls://claims-prod/silver/claims"
+  gold_path:        "adls://claims-prod/gold"
+  quarantine_path:  "adls://claims-prod/quarantine/claims"
+  dlq_path:         "adls://claims-prod/dlq/claims"
+  checkpoint_store: "adls://claims-prod/checkpoints"
+quality:
+  failure_threshold: 0.005
+  dq_report_path: "adls://claims-prod/dq-reports"
+monitoring:
+  azure_monitor_endpoint: "${AZURE_MONITOR_ENDPOINT}"
+  dcr_rule_id: "${AZURE_DCR_RULE_ID}"
+trigger_interval: "30 seconds"

@@ -1,0 +1,8 @@
+pyspark==3.5.1
+delta-spark==3.1.0
+great-expectations==0.18.12
+azure-eventhub==5.11.6
+azure-storage-blob==12.19.1
+azure-identity==1.16.0
+azure-monitor-ingestion==1.0.3
+pyyaml==6.0.1
